@@ -22,6 +22,9 @@
 #define nOCTW PA3
 #define nFAULT PA4
 
+//  BLDCMotor(int pp, (optional R, KV))
+//  - pp  - pole pair number
+BLDCMotor motor = BLDCMotor(11);
 
 HallSensor sensor = HallSensor(HALL_1, HALL_2, HALL_3, 11); // 11 is the number of pole pairs
 
@@ -40,13 +43,15 @@ void doA(){sensor.handleA();}
 void doB(){sensor.handleB();}
 void doC(){sensor.handleC();}
 
-// enable hall sensor hardware interrupts
-sensor.enableInterrupts(doA, doB, doC)
+
 
 void setup(){
 
   Serial.begin(115200);
   SimpleFOCDebug::enable(&Serial);
+
+  // enable hall sensor hardware interrupts
+  sensor.enableInterrupts(doA, doB, doC);
 
   // pwm frequency to be used [Hz]
   driver.pwm_frequency = 20000; //20kHz
@@ -80,7 +85,8 @@ void setup(){
   motor.linkDriver(&driver);
     // motor init
   motor.init();
-
+  // aligning voltage [V]
+  motor.voltage_sensor_align = 3; // default 3V
   // init current sense
   current_sense.init();
   // link the current sense to the motor
