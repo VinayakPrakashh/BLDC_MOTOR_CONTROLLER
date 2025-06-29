@@ -2,12 +2,12 @@
 #include "arduino.h"
 
 // These pins are used for the DRV8302 driver
-#define IN1_H PA8
-#define IN1_L PB13
-#define IN2_H PA9
-#define IN2_L PB14
-#define IN3_H PA10
-#define IN3_L PB15
+#define INH_A PA8
+#define INL_A PB13
+#define INH_B PA9
+#define INL_B PB14
+#define INH_C PA10
+#define INL_C PB15
 // EN_GATE is the enable pin for the DRV8302 driver
 #define EN_GATE PB12
 // These pins are used for the Hall sensors

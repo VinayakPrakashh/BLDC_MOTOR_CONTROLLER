@@ -92,6 +92,8 @@ void loop()
    }
 
    // current_time = micros();
+
+  
   target_current = map(analogRead(PA5),257,790, 0, MAX_TARGET * 100) / 100.0; // division by 100 to get some float/decimal point precision
   if(target_current <= target){ // throttle released or not changed 
     target = target_current;
