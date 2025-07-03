@@ -10,6 +10,10 @@
 #define INL_C PB15
 // EN_GATE is the enable pin for the DRV8302 driver
 #define EN_GATE PB12
+#define DC_CAL PB11 // DC calibration pin
+#define BRAKE PB10 // Brake pin
+#define THROTTLE PB6 // Throttle pin
+#define IGNITION PB4 // Ignition pin
 // These pins are used for the Hall sensors
 #define HALL_1 PB9
 #define HALL_2 PB8
